@@ -1,0 +1,30 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Apartments
+
+# Model Form Field configuration
+form: $/eugene/apartments/models/apartmentslist/fields.yaml
+
+# Model Class name
+modelClass: Eugene\Apartments\Models\ApartmentsList
+
+# Default redirect location
+defaultRedirect: eugene/apartments/apartments
+
+# Create page
+create:
+    title: 'Создать новый элемент'
+    redirect: eugene/apartments/apartments/update/:id
+    redirectClose: eugene/apartments/apartments
+    flashSave: 'Элемент создан'
+
+# Update page
+update:
+    title: 'Редактирование элемента'
+    redirect: eugene/apartments/apartments
+    redirectClose: eugene/apartments/apartments
+    flashSave: 'Элемент сохранен'
+    flashDelete: 'Удалить элемент?'

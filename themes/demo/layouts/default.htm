@@ -1,0 +1,69 @@
+description = "Default layout"
+==
+<?php
+function onSend() {
+  $url = Request::url();
+  $names = Input::keys();
+  $values = Input::all();
+  $params = compact('names', 'values', 'url');
+  
+  Mail::send('backend::mail.all', $params, function($message) {
+    $host = str_replace($_SERVER['REQUEST_URI'], '', Request::url());
+  	$this_mail = 'noreply-email-test@yandex.ru';
+    $message->to($this_mail)->subject('Заявка с сайта: '.$host);
+  });
+  
+  return true;
+}
+?>
+==
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="OctoberCMS">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="OctoberCMS">
+    <link rel="icon" type="image/png" href="{{ 'assets/images/october.png'|theme }}">
+    <link href="{{ 'assets/css/vendor.css'|theme }}" rel="stylesheet">
+    <link href="{{ 'assets/css/theme.css'|theme }}" rel="stylesheet">
+	  <link href="{{ 'assets/css/react-app.css'|theme }}" rel="stylesheet">
+	  <!-- Fotorama from CDNJS, 19 KB -->
+	  
+	  <link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+	  
+    {% styles %}
+  </head>
+  <body>
+
+    <!-- Header -->
+    <header id="layout-header">
+        {% partial 'site/header' %}
+    </header>
+
+    <!-- Content -->
+    <section id="layout-content">
+        <div class="container">
+            {% page %}
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="layout-footer">
+        {% partial 'site/footer' %}
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="{{ 'assets/vendor/jquery.js'|theme }}"></script>
+    <script src="{{ 'assets/vendor/bootstrap.js'|theme }}"></script>
+    <script src="{{ 'assets/javascript/app.js'|theme }}"></script>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="{{ 'assets/react/app.js'|theme }}" type="text/babel"></script>
+    {% framework extras %}
+    {% scripts %}
+		
+  </body>
+</html>

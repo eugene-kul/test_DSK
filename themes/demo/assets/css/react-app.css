@@ -1,0 +1,270 @@
+.apartment {
+	margin: 20px 0;
+	background-color: #EFEAE4;
+	border-radius: 5px;
+	display: flex;
+}
+
+.apartment-image-block {
+	flex: 1 1 50%;
+	max-width: 50%;
+	padding: 40px 20px;
+}
+
+.apartment-content-block {
+	flex: 1 1 50%;
+	max-width: 50%;
+	padding: 30px 40px 30px 10px;
+}
+
+@media (max-width: 768px) {
+	.apartment {
+		flex-direction: column;
+	}
+	.apartment-image-block {
+		flex: 1 1 100%;
+		max-width: 100%;
+		padding: 20px 20px 10px;
+	}
+	.apartment-content-block {
+		flex: 1 1 100%;
+		max-width: 100%;
+		padding: 10px 20px 20px;
+	}
+}
+
+.apartment-title {
+	font-size: 24px;
+	color: #666666;
+	line-height: normal;
+	margin: 0 0 20px 0;
+}
+
+.apartment-deadline {
+	margin-bottom: 5px;
+}
+
+@media (max-width: 1024px) {
+	.apartment-deadline {
+		font-size: 14px;
+	}
+}
+
+.apartment-tags {
+	margin-bottom: 20px;
+	font-weight: 700;
+}
+
+@media (max-width: 1024px) {
+	.apartment-tags {
+		font-size: 14px;
+	}
+}
+
+.apartment-payment {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 1px solid #7D7163;
+	padding: 5px 0;
+	margin-bottom: 20px;
+}
+
+.apartment-payment-text {
+	line-height: normal;
+	padding-right: 10px;
+}
+
+.apartment-payment-price {
+	font-weight: 700;
+	font-size: 18px;
+	white-space: nowrap;
+}
+
+.apartment-price {
+	font-size: 24px;
+	font-weight: 700;
+	margin-bottom: 20px;
+	white-space: nowrap;
+}
+
+.apartment-price span {
+	font-size: 14px;
+	font-weight: 400;
+	display: block;
+}
+
+.apartment-button {
+	border: 1px solid #999;
+	background-color: #F2726F;
+	color: #fff;
+	border-radius: 5px;
+	padding: 5px 20px;
+	font-size: 16px;
+}
+
+.apartment-button:hover {
+	background-color: #d5625f;
+}
+
+.apartment .apartment-button {
+	width: 100%;
+}
+
+.react-modal {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	z-index: 1100;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.react-modal-backdrop {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	opacity: 0.4;
+	z-index: -1;
+	background-color: #000;
+}
+.react-modal-content {
+	background-color: #EFEAE4;
+	padding: 30px;
+	border-radius: 10px;
+	position: relative;
+	width: 420px;
+	overflow: hidden;
+}
+.react-modal-close {
+	position: absolute;
+	cursor: pointer;
+	line-height: 30px;
+	width: 40px;
+	height: 40px;
+	text-align: center;
+	top: 0;
+	right: 0;
+	padding: 5px;
+	opacity: 0.7;
+	border-radius: 0 10px 0 10px;
+	font-size: 20px;
+}
+.react-modal-close:hover {
+	background-color: rgba(0,0,0,0.1);
+	color: #F2726F;
+	opacity: 1;
+}
+.react-modal-title {
+	font-size: 26px;
+	font-weight: 700;
+	line-height: normal;
+	margin-bottom: 30px;
+	color: #F2726F;
+	padding-right: 10px;
+}
+.react-modal-title span {
+	font-size: 18px;
+	font-weight: 400;
+	display: block;
+	margin-top: 10px;
+	color: #666;
+}
+.react-modal-content form {
+	text-align: center;
+}
+.react-modal-content label {
+	text-align: left;
+	width: 100%;
+	font-size: 14px;
+	color: #666;
+}
+.react-modal-content form input {
+	font-weight: 400;
+	display: block;
+	width: 100%;
+	margin-bottom: 20px;
+	outline: 0;
+	padding: 5px 10px;
+	border: 0;
+	font-size: 16px;
+	background-color: transparent;
+	border-bottom: 2px solid #7D7163;
+}
+
+.react-modal-content form button {
+	margin-top: 20px;
+}
+
+.modal-success,
+.modal-success-error {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: -110%;
+	left: 0;
+	z-index: 1;
+	margin: 0 auto;
+	overflow: hidden;
+	transition: all 0.5s;
+	text-align: center;
+	padding: 40px;
+}
+
+.modal-success-error {
+	background: tomato;
+}
+
+.modal-success {
+	background: linear-gradient(45deg, #5f9a4c 32%, #1e693a 100%)
+}
+
+.modal-success.active,
+.modal-success-error.active {
+	top: 0;
+}
+
+.modal-success-error p {
+	color: #fff;
+	font-size: 24px;
+	line-height: normal;
+	margin: 0 0 20px;
+}
+
+.modal-success-title,
+.modal-success-text {
+	transition-duration: 0.5s;
+	transform: translateY(-100px);
+	opacity: 0;
+	transition-property: transform, opacity;
+}
+
+.modal-success.active .modal-success-title,
+.modal-success.active .modal-success-text {
+	opacity: 1;
+	transform: translateY(0px);
+}
+
+.modal-success-title {
+	transition-delay: 0.2s;
+	color: #fff;
+	font-weight: 700;
+	font-size: 26px;
+	line-height: normal;
+	margin: 0 0 10px;
+}
+
+.modal-success-text {
+	transition-delay: 0.4s;
+	color: #fff;
+	line-height: normal;
+	font-size: 18px;
+}

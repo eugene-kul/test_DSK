@@ -1,0 +1,27 @@
+title = "home"
+url = "/"
+layout = "default"
+is_hidden = 0
+
+[ApartmentsList]
+SortOrder = "new"
+==
+{% set apartments = ApartmentsList.records %}
+
+<h1>Квартиры</h1>
+<hr>
+
+{% for apartment in apartments %}
+	<div class="apartments"
+		data-index="{{ apartment.id }}"
+		data-images="{{ apartment.images }}"
+		data-props='{
+			"name": "{{ apartment.name }}",
+			"deadline": "{{ apartment.deadline }}",
+			"tags": "{{ apartment.tags }}",
+			"price": "{{ apartment.price }}",
+			"initial_payment": "{{ (apartment.price * apartment.percent)/100 }}"
+		}'></div>
+{% endfor %}
+
+<div id="modal"></div>

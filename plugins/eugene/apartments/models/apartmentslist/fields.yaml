@@ -1,0 +1,40 @@
+fields:
+  active:
+    label: 'Активное предложение'
+    commentAbove: 'Отключите этот параметр, чтобы скрыть данный элемент со страницы'
+    span: full
+    type: switch
+    default: true
+  name:
+    label: 'Название квартиры'
+    span: auto
+    type: text
+  deadline:
+    label: 'Срок сдачи проекта'
+    placeholder: 'II кв. 2022'
+    span: auto
+    type: text
+  price:
+    label: 'Цена'
+    span: auto
+    type: number
+  percent:
+    label: 'Процент первоначального взноса'
+    span: auto
+    type: number
+    default: 15
+  tags:
+    label: 'Тэги'
+    span: auto
+    type: taglist
+  images:
+    label: 'Фотографии'
+    mode: image
+    imageWidth: '100'
+    imageHeight: '100'
+    useCaption: true
+    thumbOptions:
+      mode: crop
+      extension: auto
+    span: full
+    type: fileupload

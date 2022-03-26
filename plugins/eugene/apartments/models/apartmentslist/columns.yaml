@@ -1,0 +1,28 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    name:
+        label: 'Название квартиры'
+        type: text
+    price:
+        label: 'Цена'
+        type: text
+    active:
+        label: 'Активное предложение'
+        type: switch
+        width: 150px
+    length:
+        label: 'Фото'
+        type: partial
+        path: $/eugene/apartments/models/apartmentslist/_photo-length.htm
+        width: 150px
+    updated_at:
+        label: 'изменения'
+        type: timesince
+        width: 200px
+    created_at:
+        label: 'дата создания'
+        type: timetense
+        width: 200px
