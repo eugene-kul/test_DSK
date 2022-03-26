@@ -57,22 +57,19 @@ const Apartments = (props) => {
 		<div className='apartment' >
 			<div className='apartment-image-block'>
 				<div className='fotorama'>
-					{
-						props.images.map(image => {
-							return <img key={image.id} src={image.path} alt={image.title || image.description || image.file_name}/>
-						})
-					}
+					{props.images.map(image => {
+						return <img key={image.id} src={image.path} alt={image.title || image.description || image.file_name}/>
+					})}
 				</div>
 			</div>
 			<div className='apartment-content-block'>
 				<h2 className='apartment-title'>{state.name}</h2>
 				<p className='apartment-deadline'>Срок сдачи: {state.deadline}</p>
-				<p className='apartment-tags'>{state.tags.replace(',', ', ')}</p>
+				<p className='apartment-tags'>{state.tags}</p>
 				<div className='apartment-payment'>
 					<span className='apartment-payment-text'>Первоначальный взнос:</span>
 					<span className='apartment-payment-price'>от {parseInt(state.initial_payment).toLocaleString()} ₽</span>
 				</div>
-				
 				<div className='apartment-price'><span>Цена:</span> от {parseInt(state.price).toLocaleString()} Руб.</div>
 				<button className='apartment-button' type='button' onClick={() => modalHandler(state.name)}>Узнать цену</button>
 			</div>

@@ -1,11 +1,10 @@
-1648311352a:1:{s:8:"home.htm";a:10:{s:8:"fileName";s:8:"home.htm";s:7:"content";s:663:"title = "home"
+1648321879a:1:{s:8:"home.htm";a:10:{s:8:"fileName";s:8:"home.htm";s:7:"content";s:768:"title = "home"
 url = "/"
 layout = "default"
 is_hidden = 0
 
 [ApartmentsList]
 SortOrder = "new"
-percent = 10
 ==
 {% set apartments = ApartmentsList.records %}
 
@@ -19,14 +18,16 @@ percent = 10
 		data-props='{
 			"name": "{{ apartment.name }}",
 			"deadline": "{{ apartment.deadline }}",
-			"tags": "{{ apartment.tags }}",
+			"tags": "{{ apartment.tags|replace({',':', '}) }}",
 			"price": "{{ apartment.price }}",
-			"initial_payment": "{{ apartment.percent ? (apartment.price * apartment.percent)/100 : null }}"
+			"initial_payment": "{{ (apartment.price * apartment.percent)/100 }}"
 		}'></div>
+{% else %}
+	<div class="apartment-empty">Предложений в данном разделе пока еще нет</div>
 {% endfor %}
 
 <div id="modal"></div>
-";s:5:"mtime";i:1648308568;s:6:"markup";s:542:"{% set apartments = ApartmentsList.records %}
+";s:5:"mtime";i:1648320040;s:6:"markup";s:661:"{% set apartments = ApartmentsList.records %}
 
 <h1>Квартиры</h1>
 <hr>
@@ -38,10 +39,12 @@ percent = 10
 		data-props='{
 			"name": "{{ apartment.name }}",
 			"deadline": "{{ apartment.deadline }}",
-			"tags": "{{ apartment.tags }}",
+			"tags": "{{ apartment.tags|replace({',':', '}) }}",
 			"price": "{{ apartment.price }}",
-			"initial_payment": "{{ apartment.percent ? (apartment.price * apartment.percent)/100 : null }}"
+			"initial_payment": "{{ (apartment.price * apartment.percent)/100 }}"
 		}'></div>
+{% else %}
+	<div class="apartment-empty">Предложений в данном разделе пока еще нет</div>
 {% endfor %}
 
-<div id="modal"></div>";s:4:"code";N;s:5:"title";s:4:"home";s:3:"url";s:1:"/";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";s:14:"ApartmentsList";a:2:{s:9:"SortOrder";s:3:"new";s:7:"percent";s:2:"10";}}}
+<div id="modal"></div>";s:4:"code";N;s:5:"title";s:4:"home";s:3:"url";s:1:"/";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";s:14:"ApartmentsList";a:1:{s:9:"SortOrder";s:3:"new";}}}

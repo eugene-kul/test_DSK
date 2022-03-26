@@ -6,6 +6,9 @@ columns:
     name:
         label: 'Название квартиры'
         type: text
+    tags:
+      label: 'Теги квартиры'
+      type: text
     price:
         label: 'Цена'
         type: text

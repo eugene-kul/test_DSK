@@ -28,10 +28,7 @@ function onSend() {
     <link href="{{ 'assets/css/vendor.css'|theme }}" rel="stylesheet">
     <link href="{{ 'assets/css/theme.css'|theme }}" rel="stylesheet">
 	  <link href="{{ 'assets/css/react-app.css'|theme }}" rel="stylesheet">
-	  <!-- Fotorama from CDNJS, 19 KB -->
-	  
-	  <link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
-	  
+	  <link href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
     {% styles %}
   </head>
   <body>
@@ -62,6 +59,12 @@ function onSend() {
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <script src="{{ 'assets/react/app.js'|theme }}" type="text/babel"></script>
+    <script defer>
+		    let fotorama = document.createElement('script')
+		    fotorama.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js')
+		    document.head.appendChild(fotorama)
+    </script>
+    
     {% framework extras %}
     {% scripts %}
 		

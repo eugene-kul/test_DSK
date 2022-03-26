@@ -58,10 +58,6 @@ $(document).tooltip({
  * Auto hide navbar
  */
 jQuery(document).ready(function($){
-	let fotorama = document.createElement('script')
-	fotorama.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js')
-	document.head.appendChild(fotorama)
-	
     var $header = $('.navbar-autohide'),
         scrolling = false,
         previousTop = 0,

@@ -59,71 +59,74 @@ class __TwigTemplate_fb2012b0e865c5f8820458f43410764d4207d309809e34228d79d300340
         // line 11
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/css/react-app.css");
         echo "\" rel=\"stylesheet\">
-\t  <!-- Fotorama from CDNJS, 19 KB -->
-\t  
-\t  <link  href=\"https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css\" rel=\"stylesheet\">
-\t  
+\t  <link href=\"https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css\" rel=\"stylesheet\">
     ";
-        // line 16
+        // line 13
         echo $this->env->getExtension('Cms\Twig\Extension')->assetsFunction('css');
         echo $this->env->getExtension('Cms\Twig\Extension')->displayBlock('styles');
-        // line 17
+        // line 14
         echo "  </head>
   <body>
 
     <!-- Header -->
     <header id=\"layout-header\">
         ";
-        // line 22
+        // line 19
         $context['__cms_partial_params'] = [];
         echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("site/header"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
-        // line 23
+        // line 20
         echo "    </header>
 
     <!-- Content -->
     <section id=\"layout-content\">
         <div class=\"container\">
             ";
-        // line 28
+        // line 25
         echo $this->env->getExtension('Cms\Twig\Extension')->pageFunction();
-        // line 29
+        // line 26
         echo "        </div>
     </section>
 
     <!-- Footer -->
     <footer id=\"layout-footer\">
         ";
-        // line 34
+        // line 31
         $context['__cms_partial_params'] = [];
         echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("site/footer"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
-        // line 35
+        // line 32
         echo "    </footer>
 
     <!-- Scripts -->
     <script src=\"https://code.jquery.com/jquery-3.6.0.min.js\" integrity=\"sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=\" crossorigin=\"anonymous\"></script>
     <script src=\"";
-        // line 39
+        // line 36
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/vendor/jquery.js");
         echo "\"></script>
     <script src=\"";
-        // line 40
+        // line 37
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/vendor/bootstrap.js");
         echo "\"></script>
     <script src=\"";
-        // line 41
+        // line 38
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/javascript/app.js");
         echo "\"></script>
     <script src=\"https://unpkg.com/react@17/umd/react.development.js\" crossorigin></script>
     <script src=\"https://unpkg.com/react-dom@17/umd/react-dom.development.js\" crossorigin></script>
     <script src=\"https://unpkg.com/babel-standalone@6/babel.min.js\"></script>
     <script src=\"";
-        // line 45
+        // line 42
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/react/app.js");
         echo "\" type=\"text/babel\"></script>
+    <script defer>
+\t\t    let fotorama = document.createElement('script')
+\t\t    fotorama.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js')
+\t\t    document.head.appendChild(fotorama)
+    </script>
+    
     ";
-        // line 46
+        // line 49
         $_minify = System\Classes\CombineAssets::instance()->useMinify;
         if ($_minify) {
             echo '<script src="' . Request::getBasePath() . '/modules/system/assets/js/framework.combined-min.js"></script>'.PHP_EOL;
@@ -134,11 +137,11 @@ class __TwigTemplate_fb2012b0e865c5f8820458f43410764d4207d309809e34228d79d300340
         }
         echo '<link rel="stylesheet" property="stylesheet" href="' . Request::getBasePath() .'/modules/system/assets/css/framework.extras'.($_minify ? '-min' : '').'.css">'.PHP_EOL;
         unset($_minify);
-        // line 47
+        // line 50
         echo "    ";
         echo $this->env->getExtension('Cms\Twig\Extension')->assetsFunction('js');
         echo $this->env->getExtension('Cms\Twig\Extension')->displayBlock('scripts');
-        // line 48
+        // line 51
         echo "\t\t
   </body>
 </html>";
@@ -156,7 +159,7 @@ class __TwigTemplate_fb2012b0e865c5f8820458f43410764d4207d309809e34228d79d300340
 
     public function getDebugInfo()
     {
-        return array (  142 => 48,  138 => 47,  127 => 46,  123 => 45,  116 => 41,  112 => 40,  108 => 39,  102 => 35,  98 => 34,  91 => 29,  89 => 28,  82 => 23,  78 => 22,  71 => 17,  68 => 16,  60 => 11,  56 => 10,  52 => 9,  48 => 8,  39 => 1,);
+        return array (  145 => 51,  141 => 50,  130 => 49,  120 => 42,  113 => 38,  109 => 37,  105 => 36,  99 => 32,  95 => 31,  88 => 26,  86 => 25,  79 => 20,  75 => 19,  68 => 14,  65 => 13,  60 => 11,  56 => 10,  52 => 9,  48 => 8,  39 => 1,);
     }
 
     public function getSourceContext()
@@ -172,10 +175,7 @@ class __TwigTemplate_fb2012b0e865c5f8820458f43410764d4207d309809e34228d79d300340
     <link href=\"{{ 'assets/css/vendor.css'|theme }}\" rel=\"stylesheet\">
     <link href=\"{{ 'assets/css/theme.css'|theme }}\" rel=\"stylesheet\">
 \t  <link href=\"{{ 'assets/css/react-app.css'|theme }}\" rel=\"stylesheet\">
-\t  <!-- Fotorama from CDNJS, 19 KB -->
-\t  
-\t  <link  href=\"https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css\" rel=\"stylesheet\">
-\t  
+\t  <link href=\"https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css\" rel=\"stylesheet\">
     {% styles %}
   </head>
   <body>
@@ -206,6 +206,12 @@ class __TwigTemplate_fb2012b0e865c5f8820458f43410764d4207d309809e34228d79d300340
     <script src=\"https://unpkg.com/react-dom@17/umd/react-dom.development.js\" crossorigin></script>
     <script src=\"https://unpkg.com/babel-standalone@6/babel.min.js\"></script>
     <script src=\"{{ 'assets/react/app.js'|theme }}\" type=\"text/babel\"></script>
+    <script defer>
+\t\t    let fotorama = document.createElement('script')
+\t\t    fotorama.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js')
+\t\t    document.head.appendChild(fotorama)
+    </script>
+    
     {% framework extras %}
     {% scripts %}
 \t\t
@@ -215,7 +221,7 @@ class __TwigTemplate_fb2012b0e865c5f8820458f43410764d4207d309809e34228d79d300340
     
     public function checkSecurity()
     {
-        static $tags = array("styles" => 16, "partial" => 22, "page" => 28, "framework" => 46, "scripts" => 47);
+        static $tags = array("styles" => 13, "partial" => 19, "page" => 25, "framework" => 49, "scripts" => 50);
         static $filters = array("theme" => 8);
         static $functions = array();
 

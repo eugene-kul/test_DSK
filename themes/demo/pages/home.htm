@@ -18,10 +18,12 @@ SortOrder = "new"
 		data-props='{
 			"name": "{{ apartment.name }}",
 			"deadline": "{{ apartment.deadline }}",
-			"tags": "{{ apartment.tags }}",
+			"tags": "{{ apartment.tags|replace({',':', '}) }}",
 			"price": "{{ apartment.price }}",
 			"initial_payment": "{{ (apartment.price * apartment.percent)/100 }}"
 		}'></div>
+{% else %}
+	<div class="apartment-empty">Предложений в данном разделе пока еще нет</div>
 {% endfor %}
 
 <div id="modal"></div>

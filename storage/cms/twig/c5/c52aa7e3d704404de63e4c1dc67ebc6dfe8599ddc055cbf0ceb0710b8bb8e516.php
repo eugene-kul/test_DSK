@@ -46,6 +46,7 @@ class __TwigTemplate_24f13e8c1a8c279b6204a5bea0828d526070121c770277270714d868ad5
         // line 6
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["apartments"] ?? null));
+        $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["apartment"]) {
             // line 7
             echo "\t<div class=\"apartments\"
@@ -68,7 +69,7 @@ class __TwigTemplate_24f13e8c1a8c279b6204a5bea0828d526070121c770277270714d868ad5
             echo "\",
 \t\t\t\"tags\": \"";
             // line 13
-            echo twig_escape_filter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["apartment"], "tags", [], "any", false, false, true, 13), 13, $this->source), "html", null, true);
+            echo twig_escape_filter($this->env, twig_replace_filter($this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["apartment"], "tags", [], "any", false, false, true, 13), 13, $this->source), ["," => ", "]), "html", null, true);
             echo "\",
 \t\t\t\"price\": \"";
             // line 14
@@ -76,15 +77,21 @@ class __TwigTemplate_24f13e8c1a8c279b6204a5bea0828d526070121c770277270714d868ad5
             echo "\",
 \t\t\t\"initial_payment\": \"";
             // line 15
-            ((twig_get_attribute($this->env, $this->source, $context["apartment"], "percent", [], "any", false, false, true, 15)) ? (print (twig_escape_filter($this->env, ((twig_get_attribute($this->env, $this->source, $context["apartment"], "price", [], "any", false, false, true, 15) * twig_get_attribute($this->env, $this->source, $context["apartment"], "percent", [], "any", false, false, true, 15)) / 100), "html", null, true))) : (print (null)));
+            echo twig_escape_filter($this->env, ((twig_get_attribute($this->env, $this->source, $context["apartment"], "price", [], "any", false, false, true, 15) * twig_get_attribute($this->env, $this->source, $context["apartment"], "percent", [], "any", false, false, true, 15)) / 100), "html", null, true);
             echo "\"
 \t\t}'></div>
+";
+            $context['_iterated'] = true;
+        }
+        if (!$context['_iterated']) {
+            // line 18
+            echo "\t<div class=\"apartment-empty\">Предложений в данном разделе пока еще нет</div>
 ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['apartment'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 18
+        // line 20
         echo "
 <div id=\"modal\"></div>";
     }
@@ -101,7 +108,7 @@ class __TwigTemplate_24f13e8c1a8c279b6204a5bea0828d526070121c770277270714d868ad5
 
     public function getDebugInfo()
     {
-        return array (  88 => 18,  79 => 15,  75 => 14,  71 => 13,  67 => 12,  63 => 11,  58 => 9,  54 => 8,  51 => 7,  47 => 6,  41 => 2,  39 => 1,);
+        return array (  95 => 20,  88 => 18,  80 => 15,  76 => 14,  72 => 13,  68 => 12,  64 => 11,  59 => 9,  55 => 8,  52 => 7,  47 => 6,  41 => 2,  39 => 1,);
     }
 
     public function getSourceContext()
@@ -118,10 +125,12 @@ class __TwigTemplate_24f13e8c1a8c279b6204a5bea0828d526070121c770277270714d868ad5
 \t\tdata-props='{
 \t\t\t\"name\": \"{{ apartment.name }}\",
 \t\t\t\"deadline\": \"{{ apartment.deadline }}\",
-\t\t\t\"tags\": \"{{ apartment.tags }}\",
+\t\t\t\"tags\": \"{{ apartment.tags|replace({',':', '}) }}\",
 \t\t\t\"price\": \"{{ apartment.price }}\",
-\t\t\t\"initial_payment\": \"{{ apartment.percent ? (apartment.price * apartment.percent)/100 : null }}\"
+\t\t\t\"initial_payment\": \"{{ (apartment.price * apartment.percent)/100 }}\"
 \t\t}'></div>
+{% else %}
+\t<div class=\"apartment-empty\">Предложений в данном разделе пока еще нет</div>
 {% endfor %}
 
 <div id=\"modal\"></div>", "D:\\OpenServer\\domains\\localhost/themes/demo/pages/home.htm", "");
@@ -130,13 +139,13 @@ class __TwigTemplate_24f13e8c1a8c279b6204a5bea0828d526070121c770277270714d868ad5
     public function checkSecurity()
     {
         static $tags = array("set" => 1, "for" => 6);
-        static $filters = array("escape" => 8);
+        static $filters = array("escape" => 8, "replace" => 13);
         static $functions = array();
 
         try {
             $this->sandbox->checkSecurity(
                 ['set', 'for'],
-                ['escape'],
+                ['escape', 'replace'],
                 []
             );
         } catch (SecurityError $e) {

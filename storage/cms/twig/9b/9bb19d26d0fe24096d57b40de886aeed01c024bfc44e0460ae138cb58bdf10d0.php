@@ -61,23 +61,11 @@ class __TwigTemplate_35c9f7f1aeb41e39469dc0e46e643995c55ea6e35ca8c17c5110865a27e
         }
         echo "\"><a href=\"";
         echo $this->extensions['Cms\Twig\Extension']->pageFilter("home");
-        echo "\">Basic concepts</a></li>
-                <li class=\"";
+        echo "\">Квартиры</a></li>
+                <li><a href=\"";
         // line 17
-        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, true, 17), "id", [], "any", false, false, true, 17) == "ajax")) {
-            echo "active";
-        }
-        echo "\"><a href=\"";
-        echo $this->extensions['Cms\Twig\Extension']->pageFilter("ajax");
-        echo "\">AJAX framework</a></li>
-                <li class=\"";
-        // line 18
-        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, true, 18), "id", [], "any", false, false, true, 18) == "plugins")) {
-            echo "active";
-        }
-        echo "\"><a href=\"";
-        echo $this->extensions['Cms\Twig\Extension']->pageFilter("plugins");
-        echo "\">Plugin components</a></li>
+        echo url("backend");
+        echo "\">Admin Panel</a></li>
             </ul>
         </div>
     </div>
@@ -96,7 +84,7 @@ class __TwigTemplate_35c9f7f1aeb41e39469dc0e46e643995c55ea6e35ca8c17c5110865a27e
 
     public function getDebugInfo()
     {
-        return array (  75 => 18,  67 => 17,  59 => 16,  51 => 11,  39 => 1,);
+        return array (  67 => 17,  59 => 16,  51 => 11,  39 => 1,);
     }
 
     public function getSourceContext()
@@ -116,9 +104,8 @@ class __TwigTemplate_35c9f7f1aeb41e39469dc0e46e643995c55ea6e35ca8c17c5110865a27e
         <div class=\"collapse navbar-collapse navbar-main-collapse\">
             <ul class=\"nav navbar-nav\">
                 <li class=\"separator hidden-xs\"></li>
-                <li class=\"{% if this.page.id == 'home' %}active{% endif %}\"><a href=\"{{ 'home'|page }}\">Basic concepts</a></li>
-                <li class=\"{% if this.page.id == 'ajax' %}active{% endif %}\"><a href=\"{{ 'ajax'|page }}\">AJAX framework</a></li>
-                <li class=\"{% if this.page.id == 'plugins' %}active{% endif %}\"><a href=\"{{ 'plugins'|page }}\">Plugin components</a></li>
+                <li class=\"{% if this.page.id == 'home' %}active{% endif %}\"><a href=\"{{ 'home'|page }}\">Квартиры</a></li>
+                <li><a href=\"{{ url('backend') }}\">Admin Panel</a></li>
             </ul>
         </div>
     </div>
@@ -129,13 +116,13 @@ class __TwigTemplate_35c9f7f1aeb41e39469dc0e46e643995c55ea6e35ca8c17c5110865a27e
     {
         static $tags = array("if" => 16);
         static $filters = array("page" => 11);
-        static $functions = array();
+        static $functions = array("url" => 17);
 
         try {
             $this->sandbox->checkSecurity(
                 ['if'],
                 ['page'],
-                []
+                ['url']
             );
         } catch (SecurityError $e) {
             $e->setSourceContext($this->source);

@@ -1,5 +1,5 @@
 <?php 
-class Cms623f349a3ee73722333569_f69b3341c5afbf11d857be80653e3275Class extends Cms\Classes\LayoutCode
+class Cms623f60cfc4ec8198896365_6440598f5ecc85709bb846de5f842dc0Class extends Cms\Classes\LayoutCode
 {
 public function onSend() {
   $url = Request::url();
